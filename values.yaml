@@ -5,7 +5,7 @@ backend:
     tag: "1938583"
   fullnameOverride: backend
   secret:
-    dockerconfigjson: eyJnaXRsYWIucHJha3Rpa3VtLXNlcnZpY2VzLnJ1OjUwNTAiOnsidXNlcm5hbWUiOiJzdGQtMDMyLTI3IiwicGFzc3dvcmQiOiIyUHg1Znc4QSIsImVtYWlsIjoic3RkLTAzMi0yN0BwcmFrdGlrdW0tc2VydmljZXMucnUiLCJhdXRoIjoiYzNSa0xUQXpNaTB5TnpveVVIZzFabmM0UVE9PSJ9fX0=
+    dockerconfigjson: eVtLXjUwNTAiOnsidXNlcm5hbWUiOiJzdGQtMDMyLTI3IiwicGFzc3dvcmQiOiIyUHg1Znc4QSIsImVtYWlsIjoic3RkLTAzMi0yN0BwcmFrdGlrdW0tc2VydmljZXMucnUiLCJhdXRoIjoiYzNSa0xUQXpNaTB5TnpveVVIZzFabmM0UVE9PSJ9fX0=
   autoscaling:
     hpa:
       enabled: false
@@ -16,7 +16,7 @@ frontend:
     tag: "1938583"
   fullnameOverride: frontend
   secret:
-    dockerconfigjson: eyJhdHJha3Rpa3VtLXNlcnZpY2VzLnJ1OjUwNTAiOnsidXNlcm5hbWUiOiJzdGQtMDMyLTI3IiwicGFzc3dvcmQiOiIyUHg1Znc4QSIsImVtYWlsIjoic3RkLTAzMi0yN0BwcmFrdGlrdW0tc2VydmljZXMucnUiLCJhdXRoIjoiYzNSa0xUQXpNaTB5TnpveVVIZzFabmM0UVE9PSJ9fX0=
+    dockerconfigjson: eyJhdlcm5hbWUiOiJzdGQtMDMyLTI3IiwicGFzc3dvcmQiOiIyUHg1Znc4QSIsImVtYWlsIjoic3RkLTAzMi0yN0BwcmFrdGlrdW0tc2VydmljZXMucnUiLCJhdXRoIjoiYzNSa0xUQXpNaTB5TnpveVVIZzFabmM0UVE9PSJ9fX0=
   autoscaling:
     hpa:
       enabled: false
