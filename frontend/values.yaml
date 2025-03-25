@@ -1,0 +1,46 @@
+replicaCount: 1
+
+image:
+  repository: gitlab.praktikum-services.ru:5050/std-032-27/diploma_app/frontend
+  pullPolicy: IfNotPresent
+  tag: ""
+
+dockerconfig: ""
+
+service:
+  type: ClusterIP
+  port: 8080
+
+selectorLabels:
+  app: frontend
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 200m
+    memory: 512Mi
+
+autoscaling:
+  hpa:
+    enabled: false
+    minReplicas: 1
+    maxReplicas: 5
+    targetCPUUtilizationPercentage: 75
+
+
+upstream:
+  host: localhost
+  port: "8081"
+
+ingress:
+  enabled: false
+  annotations: {}
+  className: "nginx"
+  hosts:
+    - chart-example.local
+  paths:
+    - /
+  pathType: ImplementationSpecific
+  tls: []

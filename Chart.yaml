@@ -1,0 +1,15 @@
+apiVersion: v2
+type: application
+name: diploma-store-chart
+description: Helm Chart for Diploma Online Store
+
+version: 1.0.0
+appVersion: latest
+
+dependencies:
+  - name: backend
+    version: 1.0.0
+    repository: "file://backend"
+  - name: frontend
+    version: 1.0.0
+    repository: "file://frontend"

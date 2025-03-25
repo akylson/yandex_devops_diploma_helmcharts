@@ -1,0 +1,37 @@
+include:
+  - local: "tools-image/.gitlab-ci.yml" 
+
+stages:
+  - build-tools
+  - release-tools
+  - validating
+  - build
+  
+
+
+image: 
+  name: gitlab.praktikum-services.ru:5050/std-032-27/diploma_helmcharts/mytools:latest
+
+variables:
+  CHART: diploma-store-chart
+  NAMESPACE: default
+  REGISTRY_URL: "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/helm/stable"
+
+helm-validating:
+  stage: validating
+  script:
+    - ls -lah
+    - helm lint .
+
+build:
+  stage: build
+  script:
+    - export HELM_REPO_USERNAME=${CI_REGISTRY_USER}
+    - export HELM_REPO_PASSWORD=${CI_REGISTRY_PASSWORD}
+    - export HELM_REPO_ACCESS_TOKEN=${CI_JOB_TOKEN}
+    - export HELM_REPO_AUTH_HEADER="PRIVATE-TOKEN"
+    - helm repo add diploma-repo ${REGISTRY_URL} --username ${CI_REGISTRY_USER} --password ${CI_REGISTRY_PASSWORD}
+    - helm dependency update
+    - helm package .
+    - helm cm-push ${CHART}*.tgz diploma-repo
+
